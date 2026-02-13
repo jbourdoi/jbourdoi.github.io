@@ -54,7 +54,7 @@ a
 
 header
 {
-    background: #111;
+    background: var(--accent);
     color: white;
     padding: 1rem 0;
     position: relative;
@@ -99,8 +99,8 @@ nav
 .internal-link
 {
     display: inline-block;
-    background: #119;
-    border: 2px solid transparent;
+    background: var(--accent);
+    border: 4px solid transparent;
     color: white;
     padding: 0.6rem 1.2rem;
     text-decoration: none;
@@ -112,13 +112,15 @@ nav
     transition-timing-function: ease;
     transition-delay: 0s;
     transition-behavior: normal;
+    font-weight: bold;
 }
 
 .internal-link:hover
 {
     background: white;
-    color: #119;
-    border: 2px solid #119;
+    color: var(--accent);
+    border: 4px solid var(--accent);
+    font-weight: bold;
 }
 
 .external-link
@@ -191,15 +193,15 @@ footer
 {
     width: 50px;
     height: 50px;
-    transition: transform 0.3s ease;
+    transition: transform 1.2s ease;
 }
 
-.logo svg:hover
+.logo:hover svg
 {
-    transform: rotate(8deg) scale(1.25);
+    transform: rotate(-10deg) scale(1.15);
 }
 
-@media (max-width: 768px)
+@media (max-width: 500px)
 {
     .nav-links
     {
@@ -208,7 +210,7 @@ footer
         position: absolute;
         top: 70px;
         right: 0;
-        background: #111;
+        background: var(--accent);
         width: 200px;
         padding: 1rem;
         z-index: 42;
@@ -226,7 +228,8 @@ footer
     }
 }
 
-.modal {
+.modal
+{
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
@@ -236,7 +239,8 @@ footer
   z-index: 1000;
 }
 
-.modal-content {
+.modal-content
+{
   background: white;
   padding: 2rem;
   max-width: 400px;
@@ -245,20 +249,24 @@ footer
   animation: fadeIn 0.3s ease;
 }
 
-.modal-content button {
+.modal-content button
+{
   margin-top: 1rem;
   padding: 0.6rem 1.2rem;
-  background: #111;
+  background: var(--accent);
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 12px;
 }
 
-.hidden {
+.hidden
+{
   display: none;
 }
 
-@keyframes fadeIn {
+@keyframes fadeIn
+{
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
 }

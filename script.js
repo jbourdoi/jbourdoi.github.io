@@ -1,13 +1,15 @@
+const pseudo = "jbourdoi"
+
 const projects = [
     {
         title: "Webserv",
         description: "Implémentation d’un serveur HTTP en C++ capable de gérer de multiples connexions.",
-        link: "https://github.com/pseudo/webserv-42"
+        link: `https://github.com/${pseudo}/webserv-42`
     },
     {
         title: "Transcendence",
         description: "Application web avec backend, WebSocket et authentification.",
-        link: "https://github.com/pseudo/transcendence_42"
+        link: `https://github.com/${pseudo}/transcendence_42`
     }
 ];
 
@@ -18,6 +20,11 @@ const navLinks = document.querySelector(".nav-links");
 menuToggle.addEventListener("click", () => {
     navLinks.classList.toggle("active");
 });
+
+document.addEventListener("click", (ev)=>{
+    if (ev.target!==menuToggle)
+        navLinks.classList.remove("active");
+})
 
 document.querySelectorAll("a[href^='#']").forEach(anchor => {
     anchor.addEventListener("click", function (e) {
@@ -46,7 +53,10 @@ function createProjectCard(project) {
     link.classList.add("external-link");
     link.target = "_blank";
     link.rel = "noopener noreferrer";
-
+    const arrow = document.createElement("span");
+    arrow.textContent = "↗";
+    arrow.ariaHidden = "true"
+    link.appendChild(arrow)
     card.appendChild(title);
     card.appendChild(description);
     card.appendChild(link);
