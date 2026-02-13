@@ -1,45 +1,53 @@
-* {
+*
+{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+body
+{
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333;
 }
 
-.container {
+.container
+{
     width: 90%;
     max-width: 1000px;
     margin: auto;
 }
 
-header {
+header
+{
     background: #111;
     color: white;
     padding: 1rem 0;
 }
 
-nav {
+nav
+{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.nav-links {
+.nav-links
+{
     list-style: none;
     display: flex;
     gap: 1.5rem;
 }
 
-.nav-links a {
+.nav-links a
+{
     color: white;
     text-decoration: none;
 }
 
-#menu-toggle {
+#menu-toggle
+{
     display: none;
     background: none;
     border: none;
@@ -47,13 +55,15 @@ nav {
     color: white;
 }
 
-.hero {
+.hero
+{
     background: #f4f4f4;
     text-align: center;
     padding: 4rem 0;
 }
 
-.btn, .btn-small {
+.internal-link
+{
     display: inline-block;
     background: #111;
     color: white;
@@ -62,30 +72,45 @@ nav {
     margin-top: 1rem;
 }
 
-.section {
+.external-lin
+{
+    display: inline-block;
+    background: #111;
+    color: skyblue;
+    padding: 0.6rem 1.2rem;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+.section
+{
     padding: 3rem 0;
 }
 
-.skills-grid {
+.skills-grid
+{
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
 }
 
-.skills-grid div {
+.skills-grid div
+{
     background: #eee;
     padding: 0.8rem;
     border-radius: 4px;
 }
 
-.project-card {
+.project-card
+{
     background: #fafafa;
     padding: 1rem;
     margin-bottom: 1rem;
     border-left: 4px solid #111;
 }
 
-footer {
+footer
+{
     text-align: center;
     padding: 1rem;
     background: #111;
@@ -93,13 +118,16 @@ footer {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-    .nav-links {
+@media (max-width: 768px)
+{
+    .nav-links
+	{
         display: none;
         flex-direction: column;
     }
 
-    #menu-toggle {
+    #menu-toggle
+	{
         display: block;
     }
 }
