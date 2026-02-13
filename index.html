@@ -3,14 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Jacques-André Bourdoiseau</title>
+    <title>Portfolio | JAB</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
 </head>
 <body>
 
 <header>
     <nav class="container">
-        <h1 class="logo">JAB</h1>
+        <div class="logo">
+            <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="120" height="120" rx="20" fill="#119"></rect>
+            <text x="55%" y="85%" text-anchor="middle" fill="white" font-size="42" font-family="Arial, sans-serif" font-weight="bold">
+                JAB
+            </text>
+            </svg>
+        </div>
+
         <ul class="nav-links">
             <li><a href="#about">À propos</a></li>
             <li><a href="#skills">Compétences</a></li>
@@ -33,7 +42,14 @@
     <div class="container">
         <h3>À propos</h3>
         <p>
-            Développeur formé à l’<a href="https://42.fr" class="external-link">École 42</a>, passionné par le développement web
+            Développeur formé à l’<a href="https://42.fr"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="external-link"
+            aria-label="Website of Ecole 42">
+            École 42
+            <span aria-hidden="true">↗</span>
+            </a>, passionné par le développement web
             et la conception d’applications robustes. Je recherche des missions
             freelance ou un stage pour contribuer à des projets concrets.
         </p>
@@ -57,33 +73,31 @@
 <section id="projects" class="section">
     <div class="container">
         <h3>Projets</h3>
-
-        <div class="project-card">
-            <h4>Webserv</h4>
-            <p>Implémentation d’un serveur HTTP en C++ capable de gérer de multiples connexions.</p>
-            <a href="https://github.com/jbourdoi/webserv-42" class="external-link">Voir sur GitHub</a>
-        </div>
-
-        <div class="project-card">
-            <h4>Projet Web</h4>
-            <p>Application web avec gestion de formulaire, backend, websocket...</p>
-            <a href="https://github.com/jbourdoi/transcendence_42" class="external-link">Voir sur GitHub</a>
-        </div>
-
+        <div id="projects-container"></div>
     </div>
 </section>
 
 <section id="contact" class="section">
     <div class="container">
         <h3>Contact</h3>
-        <p>Email : <a href="mailto:jbourdoi@student.42.fr">jbourdoi@student.42.fr</a></p>
-        <p>GitHub : <a href="https://github.com/jbourdoi">github.com/jbourdoi</a></p>
+        <p>Email : <a href="mailto:pseudo@student.42.fr">pseudo@student.42.fr</a></p>
+        <p>GitHub : <a href="https://github.com/pseudo">github.com/pseudo</a></p>
     </div>
 </section>
 
 <footer>
-    <p>© 2026 Jacques-André Bourdoiseau</p>
+    <p>© 2026 JAB</p>
 </footer>
+<div id="wip-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="wip-title">
+  <div class="modal-content">
+    <h2 id="wip-title">🚧 Site en construction</h2>
+    <p>
+      Ce portfolio est actuellement en cours de développement.
+      Certaines sections peuvent être incomplètes.
+    </p>
+    <button id="close-modal">Continuer</button>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
