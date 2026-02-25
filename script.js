@@ -37,7 +37,8 @@ document.querySelectorAll("a[href^='#']").forEach(anchor => {
 
 const projectsContainer = document.getElementById("projects-container");
 
-function createProjectCard(project) {
+function createProjectCard(project)
+{
     const card = document.createElement("div");
     card.classList.add("project-card");
 
@@ -112,3 +113,31 @@ window.addEventListener("load", () => {
         localStorage.setItem("wipSeen", "true");
     }
 });
+
+const toggleBtn = document.getElementById('theme-toggle');
+const root = document.documentElement;
+
+// Charger préférence sauvegardée
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+  root.setAttribute('data-theme', savedTheme);
+  updateIcon(savedTheme);
+}
+
+toggleBtn.addEventListener('click', () => {
+  let current = root.getAttribute('data-theme');
+
+  if (current === 'dark') {
+    root.setAttribute('data-theme', 'light');
+    localStorage.setItem('theme', 'light');
+    updateIcon('light');
+  } else {
+    root.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+    updateIcon('dark');
+  }
+});
+
+function updateIcon(theme) {
+  toggleBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
+}

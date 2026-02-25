@@ -8,18 +8,51 @@
 :root
 {
     --primary: #111;
+    --secondary: #119;
     --accent: #2563eb;
-    --light: #f4f4f4;
+    --bg: #d3d3d3;
     --max-width: 1100px;
+}
+
+/* Dark si système en dark */
+@media (prefers-color-scheme: dark)
+{
+    :root
+    {
+        --primary: #d3d3d3;
+        --secondary: #2563eb;
+        --accent: #119;
+        --bg:  #111;
+        --max-width: 1100px;
+    }
+}
+
+/* Force light */
+html[data-theme="light"]
+{
+  --primary: #111;
+  --secondary: #119;
+  --accent: #2563eb;
+  --bg: #d3d3d3;
+}
+
+/* Force dark */
+html[data-theme="dark"]
+{
+  --primary: #d3d3d3;
+  --secondary: #119;
+  --accent: #2563eb;
+  --bg: #111;
 }
 
 body
 {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    background: white;
+    background: var(--bg);
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: var(--primary);
+    /* transition: background 0.3s ease, color 0.3s ease; */
 }
 
 h2
@@ -43,6 +76,7 @@ a
 .external-link:hover
 {
     opacity: 0.8;
+    color: var(--accent)
 }
 
 .container
@@ -52,12 +86,22 @@ a
     margin: auto;
 }
 
+header, footer
+{
+    background: var(--secondary);
+    color: var(--bg);
+}
+
 header
 {
-    background: var(--accent);
-    color: white;
     padding: 1rem 0;
     position: relative;
+}
+
+footer
+{
+    padding: 1rem;
+    text-align: center;
 }
 
 nav
@@ -76,8 +120,13 @@ nav
 
 .nav-links a
 {
-    color: white;
+    color: var(--bg);
     text-decoration: none;
+}
+
+.nav-links a:hover
+{
+    color: var(--primary);
 }
 
 #menu-toggle
@@ -86,12 +135,26 @@ nav
     background: none;
     border: none;
     font-size: 1.5rem;
-    color: white;
+    color: var(--bg);
+}
+
+#theme-toggle
+{
+    background: var(--primary);
+    border-radius: 50%;
+    height: 2rem;;
+    width: 2rem;
+}
+
+#theme-toggle:hover
+{
+    background: var(--accent);
+    cursor: pointer;
 }
 
 .hero
 {
-    background: #f4f4f4;
+    background: var(--bg);
     text-align: center;
     padding: 4rem 0;
 }
@@ -101,7 +164,7 @@ nav
     display: inline-block;
     background: var(--accent);
     border: 4px solid transparent;
-    color: white;
+    color: var(--bg);
     padding: 0.6rem 1.2rem;
     text-decoration: none;
     border-radius: 12px;
@@ -117,7 +180,7 @@ nav
 
 .internal-link:hover
 {
-    background: white;
+    background: var(--bg);
     color: var(--accent);
     border: 4px solid var(--accent);
     font-weight: bold;
@@ -126,9 +189,7 @@ nav
 .external-link
 {
     display: inline-block;
-    /* background: #111; */
-    color: darkblue;
-    /* padding: 0.6rem 1.2rem; */
+    color: var(--secondary);
     text-decoration: none;
     margin-top: 1rem;
 }
@@ -154,7 +215,7 @@ nav
 
 .skills-grid div
 {
-    background: var(--light);
+    background: var(--bg);
     padding: 0.8rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
@@ -162,11 +223,10 @@ nav
 
 .project-card
 {
-    background: #fafafa;
     padding: 1rem;
     margin-bottom: 1rem;
-    border-left: 4px solid #111;
-    background: white;
+    border-left: 4px solid var(--primary);
+    background: var(--bg);
     padding: 1.5rem;
     margin-bottom: 1.5rem;
     border-radius: 8px;
@@ -180,13 +240,17 @@ nav
     box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
-
-footer
+.logo rect
 {
-    text-align: center;
-    padding: 1rem;
-    background: #111;
-    color: white;
+  fill: var(--accent);
+}
+
+.logo text
+{
+  fill: var(--bg);
+  font-size: 42px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
 }
 
 .logo svg
@@ -241,7 +305,7 @@ footer
 
 .modal-content
 {
-  background: white;
+  background: var(--bg);
   padding: 2rem;
   max-width: 400px;
   border-radius: 8px;
@@ -254,7 +318,7 @@ footer
   margin-top: 1rem;
   padding: 0.6rem 1.2rem;
   background: var(--accent);
-  color: white;
+  color: var(--bg);
   border: none;
   cursor: pointer;
   border-radius: 12px;
